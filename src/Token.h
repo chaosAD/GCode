@@ -11,7 +11,7 @@ typedef struct Token Token;
 struct Token {
   TokenType type;
   char *str;
-  int length;  
+  int length;
 };
 
 #endif // Token_H

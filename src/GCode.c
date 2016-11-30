@@ -3,6 +3,8 @@
 #include "GCode.h"
 #include "Token.h"
 
+#define tokenGet  getToken
+
 Token *tokenCreate(TokenType type, char *str, int length) {
   Token *t = malloc(sizeof(Token));
   t->type = type;
@@ -17,7 +19,7 @@ Token *getToken(char **strPtr) {
   volatile k;
   char c, *startStr, *str = *strPtr;
   while(isSpace(*str)) str++;
-  
+
   startStr = str;
   if(isCharacter(c = *str)) {
     c = *++str;
@@ -36,9 +38,9 @@ Token *getToken(char **strPtr) {
       printf("Error: a number is prefixed with some character: %c\n", c);
     }
     t = tokenCreate(NUMBER_TOKEN, startStr, str - startStr);
-  } 
-  *strPtr = str;  
-  return t; 
+  }
+  *strPtr = str;
+  return t;
 }
 
 int tokenConvertToNumber(Token *token) {
@@ -53,5 +55,18 @@ int tokenConvertToNumber(Token *token) {
     // Todo: Throw and error if Token is not of IDENTIFIER TYPE
     // ...
     return -1;
-  }  
+  }
+}
+
+int tokenGetNumbers(char **strPtr, int *arrInt, int length) {
+  Token *t;
+
+  while(length--) {
+    t = tokenGet(strPtr);
+    if(t->type == NUMBER_TOKEN) {
+      *(arrInt++) = tokenConvertToNumber(t);
+      free(t);
+    }
+  }
+  return 0;
 }

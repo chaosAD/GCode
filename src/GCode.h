@@ -10,5 +10,6 @@
 Token *tokenCreate(TokenType type, char *str, int length);
 Token *getToken(char **strPtr);
 int tokenConvertToNumber(Token *token);
+int tokenGetNumbers(char **strPtr, int *arrInt, int length);
 
 #endif // GCode_H
