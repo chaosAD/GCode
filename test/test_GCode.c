@@ -8,6 +8,10 @@ void setUp(void) {}
 void tearDown(void) {}
 
 void test_isCharacter() {
+//  char *str = "abcdefg";
+//  TEST_ASSERT_TRUE(isCharacter(*++str));
+//  TEST_ASSERT_EQUAL_STRING("bcdefg", str);
+
   TEST_ASSERT_TRUE(isCharacter('a'));
   TEST_ASSERT_TRUE(isCharacter('f'));
   TEST_ASSERT_TRUE(isCharacter('z'));
@@ -97,4 +101,16 @@ void test_tokenGetNumbers_given_123_456_9874_should_return_an_array_of_the_integ
   TEST_ASSERT_EQUAL(123, arrInt[0]);
   TEST_ASSERT_EQUAL(4567, arrInt[1]);
   TEST_ASSERT_EQUAL(987401, arrInt[2]);
+}
+
+void test_gcodeInterpret_given_G97_987654_20_should_call_g97_function() {
+  char *str = " \t G97 987654  \t \t  20 ";
+
+  gcodeInterpret(str);
+}
+
+void test_gcodeInterpret_given_G98_1234567890_4_23_245_0212_0067_should_call_g98_function() {
+  char *str = "  G98 1234567890 4   23    245  0212 0067 ";
+
+  gcodeInterpret(str);
 }
