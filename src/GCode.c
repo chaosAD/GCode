@@ -1,3 +1,21 @@
+/*
+  G-Code parser
+  Copyright (C) 2015-2016 Poh Tze Ven <pohtv@acd.tarc.edu.my>
+
+  This file is part of PCB Laser engraver project.
+
+  C Compiler & Interpreter is free software, you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  C Compiler & Interpreter is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY, without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with C Compiler & Interpreter.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include <stdio.h>
 #include <malloc.h>
 #include "GCode.h"
